@@ -1,4 +1,4 @@
-# Vanilla Minecraft Discord Bot
+# Discord Bot for Vanilla Minecraft 
 
 ## Server Setup
 To have your Discord bot communicate with players in Minecraft, you need to enable the RCON protocol by following these steps:
@@ -18,6 +18,10 @@ Make sure to replace `<your_rcon_password>` and `<your_rcon_port>` with the actu
 ## Bot Installation for Users
 
 ## References
+1. [RCON](https://wiki.vg/RCON#3:_Login): a TCP/IP-based protocol that allows server administrators to remotely execute Minecraft commands  
+2. [mcrcon](https://pypi.org/project/mcrcon/): a client for handling Remote Commands (RCON) to a Minecraft server.
+3. ConnectionRefusedError: [Errno 111] Connection refused [error](https://stackoverflow.com/questions/47722559/python-valve-rcon-minecraft-connectionrefusederror-errno-111-connection-refu)
+4. Minecraft console and slash commands [here](https://minecraft.fandom.com/wiki/Commands#Command_additions_and_changes)
 
 ## Background
 Minecraft was a game I did not play until the beginning of 2023. I was fortunate enough to be gifted the game and wanted to see what the hype was all about (some 12 years later).
