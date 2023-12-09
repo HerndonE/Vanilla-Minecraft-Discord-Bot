@@ -1,6 +1,23 @@
 # Discord Bot for Vanilla Minecraft <img src='https://cdn3.emoji.gg/emojis/1491-minecraft.png' width='25'>
 
-## Server Setup
+## Discord Bot Setup <img src='https://cdn3.emoji.gg/emojis/9255-discord.png' width='20'>
+Before you use this Discord bot for Minecraft, you must set up a Discord bot first.   
+1. Log on to the [Discord website](https://discord.com/).  
+2. Naviagte to the [application page](https://discord.com/developers/applications).
+3. Click the “_New Application_” button.
+4. Give the your Discord bot a name i.e. "_MyMinecraftBot_" and click “_Create_”.
+5. Navigate to the “_Bot_” tab for configuration.
+6. Make sure that your Discord bot is ticked for **PUBLIC BOT** so you can invite the bot to your server.
+7. Copy the Discord bot token using the “_Copy_” button. _**Note:** Keep this token in a safe location_
+
+## Invite Discord Bot to Discord Server <img src='https://cdn3.emoji.gg/emojis/6174-w98-computer.png' width='20'>
+1. If you are not on your Discord bots page, navigate to the bots page.  
+2. Go to the “OAuth2 -> URL Generator” tab.
+3. Click the "_bot_" checkbox under "scopes". _**Note:** This may change over time as new features get implemented_
+4. Navigate to the bottom of the page and copy your Discord bot url under **GENERATED URL**.
+5. Paste the URL into browser URL field and select which server to invite your bot.
+
+## Server Setup <img src='https://cdn3.emoji.gg/emojis/1491-minecraft.png' width='15'>
 To have your Discord bot communicate with people in Discord and players in Minecraft, you need to enable the RCON protocol by following these steps:
 
 1. Set up a Minecraft server that supports RCON.
