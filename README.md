@@ -1,5 +1,5 @@
 # Discord Bot for Vanilla Minecraft <img src='https://cdn3.emoji.gg/emojis/1491-minecraft.png' width='25'>
-
+![image](https://raw.githubusercontent.com/HerndonE/Vanilla-Minecraft-Discord-Bot/main/Images/banner.png)
 ## Discord Bot Setup <img src='https://cdn3.emoji.gg/emojis/9255-discord.png' width='20'>
 Before you use this Discord bot for Minecraft, you must set up a Discord bot first.   
 1. Log on to the [Discord website](https://discord.com/).  
