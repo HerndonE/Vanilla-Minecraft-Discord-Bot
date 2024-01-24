@@ -1,0 +1,19 @@
+[
+  {
+    "Rcon_Information": {
+      "IP_Address": "",
+      "Password": "",
+      "Port": 0
+    },
+    "Discord_API": "",
+    "Log_File_Directory" : "",
+    "Channels" : {
+      "Discord_Minecraft_Chat" : 0,
+      "Discord_Minecraft_Activity" : 0
+    },
+    "Different_Deaths" : ["fell", "was", "drowned", "froze", "experienced", "blew", "hit", "went", "walked", "lava",
+                    "suffocated", "withered", "died", "burned"],
+    "Different_Progressions" : ["achievement", "advancement", "has"]
+  }
+]
+
