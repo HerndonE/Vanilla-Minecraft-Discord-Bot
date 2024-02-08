@@ -182,10 +182,10 @@ async def on_message(message):
 async def check_time_schedule():
     while True:
         current_time = datetime.datetime.now().time()
-        time_11_30pm = datetime.time(23, 35)
-        time_12_30pm = datetime.time(0, 35)
+        start_time = datetime.time(23, 35)
+        end_time = datetime.time(0, 35)
 
-        if current_time.hour == time_11_30pm.hour and current_time.minute == time_11_30pm.minute:
+        if current_time.hour == start_time.hour and current_time.minute == start_time.minute:
             get_activity = get_info()
 
             bot_message = f"BOT {client.user} will stop reading server chat for an hour!\nThe Minecraft Server will " \
@@ -199,7 +199,7 @@ async def check_time_schedule():
             # Delay to avoid sending multiple messages at the same time.
             await asyncio.sleep(60)
 
-        if current_time.hour == time_12_30pm.hour and current_time.minute == time_12_30pm.minute:
+        if current_time.hour == end_time.hour and current_time.minute == end_time.minute:
             get_activity = get_info()
             bot_message = f"BOT {client.user} is back online!"
             await send_minecraft_chat(f"{bot_message}")
@@ -210,7 +210,6 @@ async def check_time_schedule():
             await channel.send(embed=message)
             # Delay to avoid sending multiple messages at the same time
             await asyncio.sleep(60)
-
         await asyncio.sleep(10)
 
 
