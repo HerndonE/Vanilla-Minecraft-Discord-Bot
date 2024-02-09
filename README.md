@@ -38,7 +38,7 @@ rcon.port=<your_rcon_port>
 Make sure to replace `<your_rcon_password>` and `<your_rcon_port>` with the actual values you want to use.
 
 ## Bot Installation for Users
-1. Download the Minecraft Discord Bot Setup Wizard executable [here]().
+1. Download the Minecraft Discord Bot Setup Wizard executable [here](https://github.com/HerndonE/Vanilla-Minecraft-Discord-Bot/blob/main/Minecraft%20Discord%20Bot%20Seutp%20Wizard.exe?raw=true).
 2. The Setup Wizard will download and install the latest Minecraft Discord Bot release.
 3. Follow the configuration instructions to get your Minecraft Discord Bot started.
 
