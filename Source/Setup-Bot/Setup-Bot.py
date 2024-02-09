@@ -17,6 +17,10 @@ from tkinter import messagebox
 class Ui_Form(object):
     def setup_ui(self, Form):
         Form.setObjectName("Form")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Images/mcd-icon.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Form.setWindowIcon(icon)
         Form.setEnabled(True)
         Form.resize(1100, 600)
         Form.setMinimumSize(QtCore.QSize(1100, 600))
