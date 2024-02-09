@@ -9,16 +9,16 @@ References :
 """
 import json
 import os
-import subprocess
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
-
+import winshell
+from win32com.client import Dispatch
 
 class Ui_Form(object):
     def setup_ui(self, Form):
         Form.setObjectName("Form")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Images/mcd-icon.png"),
+        icon.addPixmap(QtGui.QPixmap(resource_path("mcd-icon.png")),
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
         Form.setEnabled(True)
@@ -69,7 +69,7 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(0, 0, 261, 531))
         self.label.setText("")
         self.label.setTextFormat(QtCore.Qt.RichText)
-        self.label.setPixmap(QtGui.QPixmap("Images/mcd_cabin.png"))
+        self.label.setPixmap(QtGui.QPixmap(resource_path("mcd_cabin.png")))
         self.label.setObjectName("label")
         self.IPAdressTextEdit = QtWidgets.QTextEdit(Form)
         self.IPAdressTextEdit.setGeometry(QtCore.QRect(560, 194, 500, 23))
@@ -244,7 +244,7 @@ class Ui_Form(object):
         self.apply_changes(setup_information)
 
     def apply_changes(self, setup_information):
-        config_file = f"{os.getcwd()}\\Bot Settings\\config.json"
+        config_file = f"{script_location}\\Bot Settings\\config.json"
         with open(config_file) as f:
             configuration_information = json.load(f)
             configuration_information[0]["Rcon_Information"]['IP_Address'] = setup_information[0][1]
@@ -257,17 +257,48 @@ class Ui_Form(object):
 
         with open(config_file, 'w') as f:
             json.dump([configuration_information[0]], f, sort_keys=True, indent=4)
-
         Form.close()
-        messagebox.showinfo(title="Bot initialization", message="Discord Bot will now start.")
-        self.start_bot()
+        response = messagebox.askquestion('', 'Do you want to create a desktop shortcut?')
+        if response == 'yes':
+            target = f"{script_location}\\Discord-Minecraft-Bot.exe"
+            shortcut_name = "Discord Minecraft Bot"
+            create_desktop_shortcut(target, shortcut_name)
+            messagebox.showinfo(title="Bot initialization", message="Discord Bot will now start.")
+            self.start_bot()
+        else:
+            messagebox.showinfo(title="Bot initialization", message="Discord Bot will now start.")
+            self.start_bot()
 
     def start_bot(self):
-        subprocess.call([f"{os.getcwd()}\\Discord-Minecraft-Bot.exe"])
+        os.startfile(f"{script_location}\\Discord-Minecraft-Bot.exe")
+
+
+def create_desktop_shortcut(target, shortcut_name):
+    desktop = winshell.desktop()
+    path = os.path.join(desktop, f"{shortcut_name}.lnk")
+    shell = Dispatch('WScript.Shell')
+    shortcut = shell.CreateShortCut(path)
+    shortcut.TargetPath = target
+    shortcut.save()
+
+
+def resource_path(filename):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, filename)
+    else:
+        return filename
 
 
 if __name__ == "__main__":
     import sys
+
+    # Determine location of script/.exe by first checking if it is a frozen application "packaged executable". Since
+    # this will be, assign sys.executable
+    if getattr(sys, 'frozen', False):
+        script_location = sys.executable
+    else:
+        script_location = os.path.abspath(__file__)
+    script_location = os.path.dirname(script_location)
 
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
