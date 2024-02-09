@@ -1,4 +1,4 @@
-# Discord Bot for Vanilla Minecraft <img src='https://cdn3.emoji.gg/emojis/1491-minecraft.png' width='25'>
+# Discord Bot for Vanilla Minecraft (Java Edition) <img src='https://cdn3.emoji.gg/emojis/1491-minecraft.png' width='25'>
 ![image](https://github.com/HerndonE/Vanilla-Minecraft-Discord-Bot/blob/main/Images/banner.png?raw=true)
 
 ## Abstract
