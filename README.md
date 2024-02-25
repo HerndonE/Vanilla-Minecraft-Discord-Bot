@@ -50,7 +50,7 @@ The Minecraft Discord Bot provides:
 1. Users and Players the ablility to chat between the Minecraft and Discord Server<br>
 2. Notifications to Discord users when a player joins and leaves a game.<br>
 3. Notifications to Discord users when a player dies or earns an achievement.<br>
-4. Notifications to Discord users when the bot stops reading the Minecraft server logs (_this allows the Minecraft server to create new logs_).<br>
+4. Notifications to Discord users when the bot stops reading the Minecraft server logs (this allows the Minecraft server to create new logs).<br>
 5. Notifications to Discord users when the Minecraft server host stops the server.
 </p>
 <br clear="left"/>
