@@ -45,16 +45,16 @@ Make sure to replace `<your_rcon_password>` and `<your_rcon_port>` with the actu
 ## Bot Functions and Features
 The Minecraft Discord Bot provides:
 
-<div style='padding:0.7em; margin-left:0.7em; display: inline-block;'>
-  <img src="https://raw.githubusercontent.com/HerndonE/Vanilla-Minecraft-Discord-Bot/main/Images/features.jpg" width="350" align="right" style='padding:0.27em;' />
-  <ol>
-    <li>Users and Players the ability to chat between the Minecraft and Discord Server</li>
-    <li>Notifications to Discord users when a player joins and leaves a game.</li>
-    <li>Notifications to Discord users when a player dies or earns an achievement.</li>
-    <li>Notifications to Discord users when the bot stops reading the Minecraft server logs (<i>this allows the Minecraft server to create new logs</i>).</li>
-    <li>Notifications to Discord users when the Minecraft server host stops the server.</li>
-  </ol>
-</div>
+<figure style="float: right; margin: 0px 0px 15px 15px; width: 350px;">
+  <img src="https://raw.githubusercontent.com/HerndonE/Vanilla-Minecraft-Discord-Bot/main/Images/features.jpg" alt="Bot Features" width="350" style="border: 1px solid black;">
+  <figcaption style="text-align: center; font-style: italic;"></figcaption>
+</figure>
+
+- Users and Players the ability to chat between the Minecraft and Discord Server
+- Notifications to Discord users when a player joins and leaves a game.
+- Notifications to Discord users when a player dies or earns an achievement.
+- Notifications to Discord users when the bot stops reading the Minecraft server logs (*this allows the Minecraft server to create new logs*).
+- Notifications to Discord users when the Minecraft server host stops the server.
 
 ## References
 1. [RCON](https://wiki.vg/RCON#3:_Login): a TCP/IP-based protocol that allows server administrators to remotely execute Minecraft commands  
