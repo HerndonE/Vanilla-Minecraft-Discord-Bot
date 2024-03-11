@@ -1,6 +1,6 @@
 """
 Author     : Ethan Herndon
-Date       : 5/2/23
+Date       : 3/10/24
 Filename   : Discord-Minecraft-Bot.py
 Desc       : Discord bot to allow communication between Discord and Minecraft users.
 References :
@@ -59,8 +59,21 @@ async def read_player_chat_messages():
                 else:
                     # Go through the new lines and print out any player chat messages.
                     for line in latest_lines:
+                        if "[DISCORD]" in line:
+                            continue
 
                         if any(item in line for item in get_activity[0]["Different_Progressions"]):
+                            if "]: <" in line:
+                                get_time = line.split()
+                                get_player_name = re.search(r"<(.*?)>", line)
+                                player_name = get_player_name.group(1)
+                                chat_message = line.split("<")[1].split(">")[1]
+                                message = discord.Embed(description="", color=0x0000FF)
+                                message.set_author(name=f"{get_time[0]} | {player_name}: {chat_message}")
+                                channel = client.get_channel(get_activity[0]["Channels"]["Discord_Minecraft_Chat"])
+                                await channel.send(embed=message)
+                                break
+
                             line = line.split()
                             get_time = line[0]
                             del line[0:3]
@@ -70,6 +83,17 @@ async def read_player_chat_messages():
                             await channel.send(embed=message)
 
                         if any(item in line for item in get_activity[0]["Different_Deaths"]):
+                            if "]: <" in line:
+                                get_time = line.split()
+                                get_player_name = re.search(r"<(.*?)>", line)
+                                player_name = get_player_name.group(1)
+                                chat_message = line.split("<")[1].split(">")[1]
+                                message = discord.Embed(description="", color=0x0000FF)
+                                message.set_author(name=f"{get_time[0]} | {player_name}: {chat_message}")
+                                channel = client.get_channel(get_activity[0]["Channels"]["Discord_Minecraft_Chat"])
+                                await channel.send(embed=message)
+                                break
+
                             if 'Villager bxz' in line:
                                 collect_coordinates, search_coordinates_info = [], [r"x=(.*?),", r"y=(.*?),",
                                                                                     r"z=(.*?)]",
@@ -182,10 +206,10 @@ async def on_message(message):
 async def check_time_schedule():
     while True:
         current_time = datetime.datetime.now().time()
-        start_time = datetime.time(23, 35)
-        end_time = datetime.time(0, 35)
+        time_11_30pm = datetime.time(23, 35)
+        time_12_30pm = datetime.time(0, 35)
 
-        if current_time.hour == start_time.hour and current_time.minute == start_time.minute:
+        if current_time.hour == time_11_30pm.hour and current_time.minute == time_11_30pm.minute:
             get_activity = get_info()
 
             bot_message = f"BOT {client.user} will stop reading server chat for an hour!\nThe Minecraft Server will " \
@@ -199,7 +223,7 @@ async def check_time_schedule():
             # Delay to avoid sending multiple messages at the same time.
             await asyncio.sleep(60)
 
-        if current_time.hour == end_time.hour and current_time.minute == end_time.minute:
+        if current_time.hour == time_12_30pm.hour and current_time.minute == time_12_30pm.minute:
             get_activity = get_info()
             bot_message = f"BOT {client.user} is back online!"
             await send_minecraft_chat(f"{bot_message}")
@@ -210,6 +234,7 @@ async def check_time_schedule():
             await channel.send(embed=message)
             # Delay to avoid sending multiple messages at the same time
             await asyncio.sleep(60)
+
         await asyncio.sleep(10)
 
 
